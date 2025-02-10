@@ -1,1 +1,88 @@
-#f0f0f0
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .app-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+        }
+        .app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+        .app img {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            transition: transform 0.2s;
+        }
+        .app:hover img {
+            transform: scale(1.1);
+        }
+        .app span {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>2007<br>(podcast)</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>forum</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>store</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>formations</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>Calendrier</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>AllRanking</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>Contact</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>buisness</span>
+        </a>
+        <a href="app1.html" class="app">
+            <img src="images/IMG_3820-min.jpeg" alt="App 1">
+            <span>Newsletter</span>
+        </a>
+    
+    </div>
+</body>
+</html>
