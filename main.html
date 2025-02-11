@@ -15,15 +15,14 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            background-color: #121212; /* Fond sombre */
-            color: #f0f0f0; /* Texte clair */
+            background-color: #121212;
+            color: #f0f0f0;
         }
-        /* Header fixe */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: #1c1c1c; /* Fond plus sombre */
+            background-color: #1c1c1c;
             color: white;
             padding: 15px;
             text-align: center;
@@ -38,13 +37,12 @@
         header a:hover {
             text-decoration: underline;
         }
-        /* Barre de navigation en bas */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #1c1c1c; /* Fond sombre */
-            border-top: 1px solid #444; /* Bordure plus claire */
+            background-color: #1c1c1c;
+            border-top: 1px solid #444;
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
@@ -52,7 +50,7 @@
         }
         .bottom-nav a {
             text-decoration: none;
-            color: #f0f0f0; /* Texte clair */
+            color: #f0f0f0;
             font-size: 14px;
             display: flex;
             flex-direction: column;
@@ -64,9 +62,8 @@
             margin-bottom: 4px;
         }
         .bottom-nav a:hover {
-            color: #ecf321; /* Couleur d'accentuation au survol */
+            color: #ecf321;
         }
-        /* Conteneur scrollable */
         .iframe-container {
             width: 100%;
             height: calc(100vh - 140px);
@@ -89,20 +86,45 @@
     <a href="main.html"><strong>2007</strong></a>
 </header>
 
-<!-- Conteneur scrollable des iframes -->
-<div class="iframe-container">
-    <iframe src="contactiframe.html"></iframe>
-    <iframe src="apps.html"></iframe>
-    <iframe src="https://discord.com/widget?id=1335517981404430378&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
+<div class="iframe-container" id="iframe-container">
+    <p>Chargement des iframes...</p>
 </div>
 
-<!-- Barre de navigation en bas -->
 <div class="bottom-nav">
-    <a href="main.html"><i class="fas fa-home"></i>Acceuil</a>
+    <a href="main.html"><i class="fas fa-home"></i>Accueil</a>
     <a href="search.html"><i class="fas fa-search"></i>Rechercher</a>
     <a href="forum.html"><i class="fas fa-plus-square"></i>Forum</a>
     <a href="contact.html"><i class="fas fa-user"></i>Contact</a>
 </div>
+
+<script>
+    async function loadIframes() {
+        const response = await fetch('data.csv');
+        const data = await response.text();
+        const rows = data.split('\n').slice(1); // Supprime l'en-tête
+        let links = [];
+
+        for (let row of rows) {
+            let [importance, lien] = row.split(',');
+            if (importance && lien) {
+                links.push({ importance: parseInt(importance), lien: lien.trim() });
+            }
+        }
+
+        links.sort((a, b) => a.importance - b.importance);
+
+        const container = document.getElementById('iframe-container');
+        container.innerHTML = ''; // Efface le contenu initial
+
+        links.forEach(item => {
+            let iframe = document.createElement('iframe');
+            iframe.src = item.lien;
+            container.appendChild(iframe);
+        });
+    }
+
+    loadIframes().catch(error => console.error("Erreur de chargement des iframes :", error));
+</script>
 
 </body>
 </html>
