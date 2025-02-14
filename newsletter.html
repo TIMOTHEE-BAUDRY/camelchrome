@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aperçu des Newsletters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .card {
+            width: 250px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+            background-color: #f9f9f9;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aperçu des Newsletters</h1>
+    <div class="container" id="newsContainer"></div>
+
+    <script>
+        async function loadNewsletters() {
+            const response = await fetch('newsletters.csv');
+            const data = await response.text();
+            const rows = data.split("\n").slice(1); // Supprime l'en-tête
+
+            let htmlContent = "";
+            rows.forEach(row => {
+                const columns = row.split(",");
+                if (columns.length >= 3) {
+                    const titre = columns[0].replace(/"/g, ''); // Supprime les guillemets
+                    const date = columns[1].replace(/"/g, '');
+                    const chemin = columns[2].replace(/"/g, '');
+
+                    htmlContent += `
+                        <div class="card">
+                            <h3>${titre}</h3>
+                            <p>Date : ${date}</p>
+                            <a href="${chemin}" target="_blank">Voir la newsletter</a>
+                        </div>
+                    `;
+                }
+            });
+
+            document.getElementById("newsContainer").innerHTML = htmlContent;
+        }
+
+        loadNewsletters();
+    </script>
+
+</body>
+</html>
