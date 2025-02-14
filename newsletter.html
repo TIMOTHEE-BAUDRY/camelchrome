@@ -3,42 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aperçu des Newsletters</title>
+    <title>Newsletters</title>
     <style>
+        /* Thème sombre */
         body {
             font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
         .container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
+            padding: 20px;
+            max-width: 100%;
         }
+
         .card {
-            width: 250px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
             padding: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
             border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.2s;
-            background-color: #f9f9f9;
+            background-color: #1e1e1e;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, background 0.3s;
+            text-align: left;
         }
+
         .card:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
+            background-color: #292929;
         }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #ffcc00;
+        }
+
+        .card p {
+            margin: 0 0 10px;
+            font-size: 14px;
+            color: #bbbbbb;
+        }
+
         .card a {
-            text-decoration: none;
-            color: #333;
+            display: block;
+            padding: 10px;
+            background: #ffcc00;
+            color: #121212;
+            text-align: center;
             font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .card a:hover {
+            background: #e6b800;
+        }
+
+        /* Style pour iframe */
+        iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card {
+                max-width: 90%;
+            }
+            iframe {
+                height: 250px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Aperçu des Newsletters</h1>
+    <h1>Newsletters</h1>
     <div class="container" id="newsContainer"></div>
 
     <script>
@@ -58,8 +117,9 @@
                     htmlContent += `
                         <div class="card">
                             <h3>${titre}</h3>
-                            <p>Date : ${date}</p>
+                            <p>Publié le : ${date}</p>
                             <a href="${chemin}" target="_blank">Voir la newsletter</a>
+                            <iframe src="${chemin}"></iframe>
                         </div>
                     `;
                 }
