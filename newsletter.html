@@ -74,23 +74,10 @@
             background: #e6b800;
         }
 
-        /* Style pour iframe */
-        iframe {
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            border: none;
-            margin-top: 10px;
-            border-radius: 10px;
-        }
-
         /* Responsive */
         @media (max-width: 600px) {
             .card {
                 max-width: 90%;
-            }
-            iframe {
-                height: 250px;
             }
         }
     </style>
@@ -119,7 +106,6 @@
                             <h3>${titre}</h3>
                             <p>Publié le : ${date}</p>
                             <a href="${chemin}" target="_blank">Voir la newsletter</a>
-                            <iframe src="${chemin}"></iframe>
                         </div>
                     `;
                 }
