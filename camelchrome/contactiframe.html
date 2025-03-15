@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>camelchrome</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
         body {
             margin: 0;
@@ -49,6 +51,10 @@
         .discord { background-color: #5865F2; }
         .strava { background-color: #1DB954; }
         .email { background-color: #FC5200; }
+        .contact-button i,
+        .contact-button ion-icon {
+            margin-right: 6px;
+        }
     </style>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -58,8 +64,10 @@
 
 <div class="contact-container">
     <a href="https://www.instagram.com/camel.chrome" target="_blank" class="contact-button instagram">
-        <i class="fab fa-instagram"></i> Instagram
+        <i class="fab fa-instagram" style="margin-right: 8px;"></i>
+        <ion-icon name="logo-instagram" style="margin-right: 8px;"></ion-icon> Instagram
     </a>
+    
 <!--     <a href="https://discord.gg/ddSuGpbe" target="_blank" class="contact-button discord">
         <i class="fab fa-discord"></i> Discord
     </a>

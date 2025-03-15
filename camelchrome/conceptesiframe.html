@@ -89,7 +89,7 @@
 
     <script>
         async function loadNewsletters() {
-            const response = await fetch('games.csv');
+            const response = await fetch('conceptes.csv');
             const data = await response.text();
             const rows = data.split("\n").slice(1); // Supprime l'en-tête
 
