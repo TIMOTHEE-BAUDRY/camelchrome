@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Image responsive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .boxtitre {
+            position: fixed;
+            top: 20px;
+            width: 95%;
+            z-index: 99;
+            text-align: center;
+        }
+
+        .boxtitre h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #222;
+        }
+
+        .boximage {
+            width: 90%;
+            max-width: 500px;
+            margin-top: 120px;
+            margin-bottom: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .boximage img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .boxlien {
+            position: fixed;
+            bottom: 20px;
+            background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+            padding: 15px 30px;
+            border-radius: 50px;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .boxlien a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .boxlien a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxtitre">
+        <h1>V1</h1>
+    </div>
+
+    <div class="boximage">
+        <img src="t-shirt002.jpeg" alt="T-shirt Camel Chrome">
+    </div>
+
+    <div class="boxlien">
+        <a href="commingsoon.html" target="_blank">🛒 Acheter maintenant</a>
+    </div>
+</body>
+</html>
